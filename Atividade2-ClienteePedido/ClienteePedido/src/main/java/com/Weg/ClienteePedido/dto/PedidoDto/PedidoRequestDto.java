@@ -1,4 +1,11 @@
 package com.Weg.ClienteePedido.dto.PedidoDto;
 
-public class PedidoRequestDto {
+import java.time.LocalDate;
+
+public record PedidoRequestDto (
+        String nome,
+        LocalDate dataDeEntrega,
+        String descricao
+){
+
 }
