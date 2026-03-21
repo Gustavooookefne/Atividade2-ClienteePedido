@@ -21,5 +21,8 @@ public class Pedido {
     @Column(name = "data_entrega" , nullable = false)
     private LocalDate dataDeEntrega;
 
+    @Column(name = "descricao" , nullable = false)
+    private String descricao;
+
 
 }
