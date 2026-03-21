@@ -5,7 +5,6 @@ import java.util.UUID;
 
 public record PedidoResponseDto (
         UUID id,
-        String nome,
         LocalDate dataDeEntrega,
         String descricao
 ){

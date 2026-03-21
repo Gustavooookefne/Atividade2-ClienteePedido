@@ -25,4 +25,6 @@ public class Pedido {
     private String descricao;
 
 
+    public Pedido(String nome, LocalDate dataDeEntrega, String descricao) {
+    }
 }
