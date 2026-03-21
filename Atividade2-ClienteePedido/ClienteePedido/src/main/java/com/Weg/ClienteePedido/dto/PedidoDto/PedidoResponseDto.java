@@ -1,5 +1,13 @@
 package com.Weg.ClienteePedido.dto.PedidoDto;
 
-public class PedidoResponseDto {
+import java.time.LocalDate;
+import java.util.UUID;
+
+public record PedidoResponseDto (
+        UUID id,
+        String nome,
+        LocalDate dataDeEntrega,
+        String descricao
+){
 
 }
