@@ -3,7 +3,9 @@ package com.Weg.ClienteePedido.mapper;
 import com.Weg.ClienteePedido.dto.PedidoDto.PedidoRequestDto;
 import com.Weg.ClienteePedido.dto.PedidoDto.PedidoResponseDto;
 import com.Weg.ClienteePedido.model.Pedido;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PedidoMapper {
 
     public Pedido paraEntidade(PedidoRequestDto requestDto){
