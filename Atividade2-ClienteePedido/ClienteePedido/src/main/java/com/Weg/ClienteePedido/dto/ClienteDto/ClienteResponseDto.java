@@ -1,4 +1,8 @@
 package com.Weg.ClienteePedido.dto.ClienteDto;
 
-public class ClienteResponseDto {
+public record ClienteResponseDto (
+        Long id,
+        String nome,
+        String cpf
+){
 }
