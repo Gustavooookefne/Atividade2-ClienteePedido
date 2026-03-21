@@ -1,6 +1,6 @@
 package com.Weg.ClienteePedido.dto.ClienteDto;
 
-public record ClinteRequestDto (
+public record ClienteRequestDto(
         String nome,
         String cpf
 ){
