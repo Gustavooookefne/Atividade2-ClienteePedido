@@ -1,4 +1,7 @@
 package com.Weg.ClienteePedido.dto.ClienteDto;
 
-public class ClinteRequestDto {
+public record ClinteRequestDto (
+        String nome,
+        String cpf
+){
 }
