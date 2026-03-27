@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,6 +24,9 @@ public class Pedido {
 
     @Column(name = "descricao" , nullable = false)
     private String descricao;
+
+    @OneToOne(mappedBy = "pedido")
+    private List<Pedido> pedidos;
 
 
     public Pedido(String nome, LocalDate dataDeEntrega, String descricao) {

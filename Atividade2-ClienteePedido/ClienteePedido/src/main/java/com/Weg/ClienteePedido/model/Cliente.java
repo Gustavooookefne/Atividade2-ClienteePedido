@@ -21,6 +21,9 @@ public class Cliente {
     @Column(name = "cpf_Cliente" , nullable = false)
     public String cpf;
 
+    @OneToMany
+    @JoinColumn(name = "id_cliente")
+    private Pedido pedido;
 
     public Cliente(String nome, String cpf) {
     }
