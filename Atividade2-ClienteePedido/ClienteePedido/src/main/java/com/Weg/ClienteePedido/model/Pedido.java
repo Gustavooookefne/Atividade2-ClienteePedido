@@ -25,8 +25,9 @@ public class Pedido {
     @Column(name = "descricao" , nullable = false)
     private String descricao;
 
-    @OneToOne(mappedBy = "pedido")
-    private List<Pedido> pedidos;
+    @ManyToOne
+    @JoinColumn(name = "idCliente")
+    private Cliente cliente;
 
 
     public Pedido(String nome, LocalDate dataDeEntrega, String descricao) {

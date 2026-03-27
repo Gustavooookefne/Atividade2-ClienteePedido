@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -21,9 +24,8 @@ public class Cliente {
     @Column(name = "cpf_Cliente" , nullable = false)
     public String cpf;
 
-    @OneToMany
-    @JoinColumn(name = "id_cliente")
-    private Pedido pedido;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Pedido> pedidos = new ArrayList<>();
 
     public Cliente(String nome, String cpf) {
     }
