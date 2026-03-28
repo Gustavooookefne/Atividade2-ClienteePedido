@@ -4,6 +4,8 @@ import com.Weg.ClienteePedido.dto.PedidoDto.PedidoRequestDto;
 import com.Weg.ClienteePedido.dto.PedidoDto.PedidoResponseDto;
 import com.Weg.ClienteePedido.service.PedidoService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,28 +19,36 @@ public class PedidoController {
     private final PedidoService service;
 
     @PutMapping
-    public PedidoResponseDto salvar (@RequestBody PedidoRequestDto requestDto) {
-        return service.salvar(requestDto);
+    public ResponseEntity<PedidoResponseDto> salvar (@RequestBody PedidoRequestDto requestDto) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.salvar(requestDto));
     }
 
     @GetMapping
-    public List<PedidoResponseDto> listarTodos () {
-        return service.listarTodos();
+    public ResponseEntity<List<PedidoResponseDto>> listarTodos () {
+            List<PedidoResponseDto> responseDtos = service.listarTodos();
+
+        return ResponseEntity.ok().body(responseDtos);
     }
 
     @GetMapping("/{id}")
-    public PedidoResponseDto listarPorId (@PathVariable UUID id) {
-        return service.listarPorId(id);
+    public ResponseEntity<PedidoResponseDto> listarPorId (@PathVariable UUID id) {
+            PedidoResponseDto responseDto = service.listarPorId(id);
+        return ResponseEntity.ok().body(responseDto);
     }
 
     @PostMapping("/{id}")
-    public PedidoResponseDto atualizar (@RequestBody PedidoRequestDto requestDto,@PathVariable UUID id)  {
-        return service.atualizar(requestDto , id);
+    public ResponseEntity<PedidoResponseDto> atualizar (@RequestBody PedidoRequestDto requestDto,@PathVariable UUID id)  {
+            PedidoResponseDto responseDto = service.atualizar(requestDto , id);
+
+            return ResponseEntity.ok().body(responseDto);
     }
 
     @DeleteMapping("/{id}")
-    public void deletar (UUID id) {
+    public ResponseEntity<Void> deletar (UUID id) {
         service.delete(id);
+
+        return ResponseEntity.noContent().build();
     }
 
 
