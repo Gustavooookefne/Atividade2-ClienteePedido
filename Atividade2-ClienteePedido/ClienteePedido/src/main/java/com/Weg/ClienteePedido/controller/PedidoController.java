@@ -45,7 +45,7 @@ public class PedidoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar (UUID id) {
+    public ResponseEntity<Void> deletar (UUID id) { // aa
         service.delete(id);
 
         return ResponseEntity.noContent().build();
